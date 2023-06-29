@@ -4,8 +4,7 @@
             "personnage",
             "pnj",
             "monstre",
-            "vehicule",
-            "planete"
+            "vehicule"
         ],
         "templates":{
             "defaut":{

@@ -5,7 +5,7 @@
  export class neanItemSheet extends ItemSheet{
     get template(){
         console.log(`nean | Récupération du fichier html ${this.item.type}-sheet.`);
-        return `systems/neansf/templates/sheets/${this.item.type}-sheet.html`;
+        return `systems/eveildunean/templates/sheets/${this.item.type}-sheet.html`;
     }
 
     getData(){

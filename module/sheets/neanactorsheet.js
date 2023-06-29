@@ -15,9 +15,9 @@
 
     get template() {
         if (this.actor.type == 'personnage' || this.actor.type == 'pnj' ) {
-            return `systems/neansf/templates/sheets/personnage-sheet.html`;
+            return `systems/eveildunean/templates/sheets/personnage-sheet.html`;
         }else {
-            return `systems/neansf/templates/sheets/${this.actor.type}-sheet.html`;
+            return `systems/eveildunean/templates/sheets/${this.actor.type}-sheet.html`;
         }
         console.log(`nean | Récupération du fichier html ${this.actor.type}-sheet.`);
         
@@ -25,6 +25,7 @@
 
     getData(){
         const data = super.getData();
+        console.log(data);  
         var poidsactor='';
         data.dtypes = ["String", "Number", "Boolean"];
         console.log(data);        
@@ -36,7 +37,6 @@
         }
         return data;
     }
-
    
     _prepareCharacterItems(sheetData) {
        const actorData = sheetData.actor;
@@ -88,6 +88,7 @@
         actorData.armure = armure;
         actorData.argent = argent;
         actorData.sort = sort;
+        console.log(arme)
     }
 
 
