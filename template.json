@@ -1,0 +1,247 @@
+{
+    "Actor": {
+        "types":[
+            "personnage",
+            "pnj",
+            "monstre",
+            "vehicule",
+            "planete"
+        ],
+        "templates":{
+            "defaut":{
+                "stat":{
+                    "hp": {
+                      "value":20,
+                      "max": 20
+                    },
+                    "armure":{
+                      "value":"0",
+                      "max": "0"
+                    },
+                    "protections":{
+                      "value":"0",
+                      "max": "0"
+                    },
+                    "credit":0,
+                    "solit":0,
+                    "tete":0,
+                    "bd":0,
+                    "torse":0,
+                    "bg":0,
+                    "jd":0,
+                    "jg":0,
+                    "encombrement": {
+                      "value": 0,
+                      "max": 0
+                    }
+                },            
+                "attributs":{
+                    "Agilité":0,
+                    "Artisanat":0,
+                    "Balistique":0,
+                    "Combat":0,
+                    "ConGén":0,
+                    "ConSpécif":0,
+                    "Dextérité":0,
+                    "Diplomatie":0,
+                    "Discrétion":0,
+                    "Force":0,
+                    "Investigation":0,
+                    "Jeu":0,
+                    "Mécanique":0,
+                    "Médecine":0,
+                    "Natation":0,
+                    "Navigation":0,
+                    "Négociation":0,
+                    "Perception":0,
+                    "Pilotage":0,
+                    "Piratage":0,
+                    "Pistage":0,
+                    "Religion":0,
+                    "Science":0,
+                    "Survie":0,
+                    "Tir":0,
+                    "Visée":0,
+                    "magie":0,
+                    "bonus":0
+                },
+                "background":{
+                    "histoire":"",
+                    "race":"",
+                    "bonusrace":"",
+                    "metier":"",
+                    "bonusmetier":"",
+                    "level":"1",
+                    "etat":{
+                        "a":0.5,  
+                        "b":0.5,  
+                        "c":0.5,  
+                        "d":0.5,  
+                        "e":0.5,  
+                        "f":0.5,  
+                        "g":0.5,  
+                        "h":0.5,  
+                        "i":0.5,  
+                        "j":0.5,  
+                        "k":0.5,  
+                        "l":0.5,  
+                        "m":0.5,  
+                        "n":0.5 
+                    } 
+                },
+                "nomcomp":""
+            }
+        },
+        "personnage":{
+            "templates":["defaut"], 
+            "charged":"",
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "prod":"",
+            "prog":"",
+            "etoiled":"",
+            "etoileg":"",
+            "mutation":"Non"
+        },
+        "pnj":{
+            "templates":["defaut"],
+            "charged":"",
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "prod":"",
+            "prog":"",
+            "typed":"",
+            "typeg":""
+        },
+        "monstre":{
+            "templates":["defaut"],
+            "charged":"",
+            "armed":"",
+            "armeg":"",
+            "degatd":"",
+            "degatg":"",
+            "prod":"",
+            "prog":"",
+            "degat":""
+        },
+        "vehicule":{
+            "templates":["defaut"],
+            "ia":0,
+            "equi":0,
+            "piece":0,
+            "blindage":0,
+            "bouclier":0,
+            "tehnologie":0,
+            "prix":0,
+            "prixbase":0,
+            "model":"",
+            "ordre":"",
+            "moteur":0.5,
+            "type":1,
+            "types":"",
+            "taille":1,
+            "tailles":""
+        },
+        "planete":{
+            "surnom": "",
+            "domination":"",
+            "pouplation":"",
+            "description": "",
+            "niveau_arme":"",
+            "niveau_crime":"", 
+            "niveau_secu":"", 
+            "niveau_tech":"", 
+            "pop_humain":"",
+            "pop_arthuriens":"",
+            "pop_draconiens":"",
+            "pop_machine":"",
+            "pop_pleiadiens":"",
+            "pop_yoribiens":"",
+            "pop_elfen":"",
+            "pop_orquanien":""
+        }
+
+        
+    },
+    "Item": {
+        "types": [
+            "arme",
+            "armure",
+            "bouclier",
+            "objet",
+            "piece",
+            "argent",
+            "sort"
+        ],
+        "arme": {
+            "description": "",
+            "genre": "",
+            "degats": "",
+            "portee": "",
+            "poids":"1",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "valeur":"10",
+            "quantite":"1",
+            "used":false
+        },
+        "armure": {
+            "description": "",
+            "genre": "",
+            "resitance": 0,
+            "hp": {
+                "value":0,
+                "max": 0
+            },
+            "poids":"1",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "valeur":"10",
+            "quantite":"1"
+        },
+        "bouclier": {
+            "description": "",
+            "genre": "",
+            "resitance": 0,
+            "hp": {
+                "value":0,
+                "max": 0
+            },
+            "poids":"1",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "valeur":"10",
+            "quantite":"1"
+        },
+        "objet": {
+            "description": "",
+            "genre": "",
+            "poids":"1",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "valeur":"10",
+            "quantite":"1"
+        },
+        "argent": {
+            "poids":"0",
+            "valeur":"1",
+            "quantite":"0"
+        },
+        "piece": {
+            "description": "",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "quantite":"1",
+            "valeur": "" 
+        },
+        "sort": {
+            "description": "",
+            "genre": "",
+            "degats": "",
+            "portee": "",
+            "poids":"1",
+            "techno":"☆ ☆ ☆ ☆ ☆",
+            "valeur":"1",
+            "quantite":"1"
+        }
+    }
+}

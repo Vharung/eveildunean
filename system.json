@@ -1,0 +1,42 @@
+{
+    "id": "eveildunean",
+    "title": "L'eveil du néan ",
+    "description": "The eveil du nean  system for FoundryVTT!",
+    "version": "0.1",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "11.299",
+      "maximum": "11"
+    },
+    "templateVersion": 2,
+    "authors": [
+      {
+        "name": "Vharung",
+        "url": "https://foundryvtt.com"
+      },{
+        "name": "Ironchieft",
+        "url": "https://foundryvtt.com"
+      }
+    ],
+    "esmodules": ["module/eveildunean.js"],
+    "styles": ["css/eveildunean.css"],
+    "scripts": [],
+    "packs": [],
+    "languages": [
+      {
+        "lang": "fr",
+        "name": "Français",
+        "path": "lang/fr.json"
+      }
+    ],
+    "background": "systems/eveildunean/assets/accueil.jpg",
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": "psy",
+    "url": "https://github.com/Vharung/eveildunean",
+    "manifest": "https://raw.githubusercontent.com/Vharung/eveildunean/main/system.json",
+    "download": "https://github.com/Vharung/eveildunean/archive/refs/heads/main.zip",
+    "license": "LICENSE.txt",
+    "relationships.requires":""
+}
