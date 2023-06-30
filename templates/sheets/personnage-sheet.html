@@ -1,267 +1,129 @@
-<!--form class="{{cssClass}} Liber" autocomplete="off">
-
-					{{!-- Items Tab --}}
-					<div id="items" class="tab items" data-group="primary" data-tab="items">
-						
-						<div>
-							<h1 style="margin-top: 20px">{{localize 'liber.armes'}} <span class="armetoile"></span></h1>
-							<ol class="items-list">
-				                <li class="item rexrow item-header">
-				                  <div class="item-image"></div>
-				                  <div class="item-name">{{localize 'liber.nom'}}</div>
-				                  <div class="item-genre"></div>
-				                  <div class="item-portee">{{localize 'liber.l1'}}</div>
-				                  <div class="item-dommage">{{localize 'liber.l2'}}</div>
-				                  <div class="item-poids">{{localize 'liber.l3'}}</div>
-				                  <div class="item-valeur">{{localize 'liber.l4'}}</div>
-				                  <div class="item-techno">{{localize 'liber.l5'}}</div>
-				                  <div class="item-qty">{{localize 'liber.l6'}}</div>
-				                  <div class="item-controls">
-				                  </div>
-				                </li>
-				            {{#each actor.arme as |item id|}}
-				                <li class="item rexrow" data-item-id="{{item._id}}">
-				                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-				                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-				                    <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
-				                    <div class="item-portee">{{item.system.portee}}</div>
-				                    <div class="item-dommage">{{item.system.degats}}</div>
-				                    <div class="item-poid">{{item.system.poids}}</div>
-				                    <div class="item-valeur">{{item.system.valeur}}</div>
-				                    <div class="item-techno">{{item.system.techno}}</div>
-				                    <div class="item-qt">{{item.system.quantite}}</div>
-				                    <div class="item-controls">
-				                    	<span class="item-equip" title="Equipé arme" genre="arme" name="{{item.name}}" data-genre="arme" data-name="{{item.name}}" data-degat="{{item.system.degats}}" data-type="{{item.system.type}}" data-etoile="{{item.system.techno}}">+</span>
-				                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-				                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-				                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-				                    </div>
-				                    <div class="item-description" title="{{item.system.description}}">{{item.system.description}}</div>
-
-				                </li>
-				            {{/each}}
-			        		</ol>
-					    	<h1 style="margin-top: 20px">{{localize 'liber.armures'}}</h1>
-							<ol class="items-list">
-				                <li class="item rexrow item-header">
-				                  <div class="item-image"></div>
-				                  <div class="item-name">{{localize 'liber.nom'}}</div>
-				                  <div class="item-genre"></div>
-				                  <div class="item-resitance">{{localize 'liber.l7'}}</div>
-				                  <div class="item-hpmax">{{localize 'liber.l8'}}</div>
-				                  <div class="item-poids">{{localize 'liber.l3'}}</div>
-				                  <div class="item-valeur">{{localize 'liber.l4'}}</div>
-				                  <div class="item-techno">{{localize 'liber.l5'}}</div>
-				                  <div class="item-qty">{{localize 'liber.l6'}}</div>
-				                  <div class="item-controls">
-				                  </div>
-				                </li>
-				            {{#each actor.armure as |item id|}}
-				                <li class="item rexrow" data-item-id="{{item._id}}">
-				                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-				                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-				                    <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
-				                    <div class="item-resitance">{{item.system.resitance}}</div>
-				                    <div class="item-hpmax">{{item.system.hp.max}}</div>
-				                    <div class="item-poid">{{item.system.poids}}</div>
-				                    <div class="item-valeur">{{item.system.valeur}}</div>
-				                    <div class="item-techno">{{item.system.techno}}</div>
-				                    <div class="item-qt">{{item.system.quantite}}</div>
-				                    <div class="item-controls">
-				                    	<span class="item-equip" title="Equipé armure" genre="{{item.system.genre}}" name="{{item.name}}" data-name="{{item.name}}" data-genre="{{item.system.genre}}"  data-name="{{item.name}}" data-hpmax="{{item.system.hp.max}}" data-hp="{{item.system.resitance}}">+</span>
-				                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-				                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-				                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-				                    </div>
-				                    <div class="item-description" title="{{item.system.description}}">{{item.system.description}}</div>
-
-				                </li>
-				            {{/each}}
-			        		</ol>
-					    	<h1 style="margin-top: 20px">{{localize 'liber.inv'}} <a class="item-control item-create" title="Create Item" data-type="objet" style="float: right;"><i class="fas fa-plus"></i></a></h1>
-							<ol class="items-list">
-				                <li class="item rexrow item-header">
-				                  <div class="item-image"></div>
-				                  <div class="item-name2">{{localize 'liber.nom'}}</div>
-				                  <div class="item-genre"></div>
-				                  <div class="item-poids">{{localize 'liber.l3'}}</div>
-				                  <div class="item-valeur">{{localize 'liber.l4'}}</div>
-				                  <div class="item-techno">{{localize 'liber.l5'}}</div>
-				                  <div class="item-qty">{{localize 'liber.l6'}}</div>
-				                  <div class="item-controls">
-				                  </div>
-				                </li>
-				            {{#each actor.inventaire as |item id|}}
-				                <li class="item rexrow" data-item-id="{{item._id}}">
-				                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-				                    <h4 class="item-name2" title="{{item.name}}">{{item.name}}</h4>
-				                    <h4 class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</h4>
-				                    <h4 class="item-poid">{{item.system.poids}}</h4>
-				                    <h4 class="item-valeur">{{item.system.valeur}}</h4>
-				                    <h4 class="item-techno">{{item.system.techno}}</h4>
-				                    <h4 class="item-qt">{{item.system.quantite}}</h4>
-				                    <div class="item-controls">
-				                    	<span class="item-equip" title="Equipé Chargeur" genre="{{item.system.genre}}" name="{{item.name}}" data-name="{{item.name}}" data-genre="{{item.system.genre}}">+</span>
-				                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-				                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-				                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-				                    </div>
-				                    <h4 class="item-description2" title="{{item.system.description}}">{{item.system.description}}</h4>
-				                </li>
-				            {{/each}}
-			        		</ol>
-			        	</div>
-					</div>
-					{{!-- Spell Tab --}}
-					<div id="magie" class="tab items " data-group="primary" data-tab="magie">   
-							<h1 style="margin-top: 20px">{{localize 'liber.sort'}}</h1>
-							<ol class="items-list">
-				                <li class="item rexrow item-header">
-				                  <div class="item-image"></div>
-				                  <div class="item-name">{{localize 'liber.nom'}}</div>              
-				                  <div class="item-type">{{localize 'liber.type'}}</div>
-				                  <div class="item-techno">{{localize 'liber.diff'}}</div>
-				                  <div class="item-qty">{{localize 'liber.cout'}}</div>
-				                  <div class="item-controls">
-				                  </div>
-				                </li>
-				            {{#each actor.sort as |item id|}}
-				                <li class="item rexrow" data-item-id="{{item._id}}">
-				                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-				                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-				                    <div class="item-type" title="{{item.system.genre}}">{{item.system.genre}} - {{item.system.portee}}</div>
-				                    <div class="item-techno">{{item.system.techno}}</div>
-				                    <div class="item-qt">{{item.system.quantite}}</div>
-				                    <div class="item-controls">
-				                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-				                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-				                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-				                    </div>
-				                    <div class="item-description" title="{{item.system.description}}">{{item.system.description}}</div>
-
-				                </li>
-				            {{/each}}
-			        		</ol>
-					</div>
-					{{!-- Lab Tab --}}
-					<div id="lab" class="tab stats" data-group="primary" data-tab="lab">
-						<h1 style="margin-top: 20px">{{localize 'liber.race'}}</h1>
-						<SELECT class="raceliste" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;" name="system.background.race">
-							{{#select actor.system.background.race}}
-			                    <option value="{{localize 'liber.humain'}}">{{localize 'liber.humain'}}</option>
-			                    <option value="{{localize 'liber.pleiadiens'}}">{{localize 'liber.pleiadiens'}}</option>
-			                    <option value="{{localize 'liber.artu'}}">{{localize 'liber.artu'}}</option>
-			                    <option value="{{localize 'liber.yor'}}">{{localize 'liber.yor'}}</option>
-			                    <option value="{{localize 'liber.dragon'}}">{{localize 'liber.dragon'}}</option>
-			                    <option value="{{localize 'liber.elf'}}">{{localize 'liber.elf'}}</option>
-			                    <option value="{{localize 'liber.machine'}}">{{localize 'liber.machine'}}</option>
-			                    <option value="{{localize 'liber.orqu'}}">{{localize 'liber.orqu'}}</option>
-			                    <option value="{{localize 'liber.autre'}}">{{localize 'liber.autre'}}</option>
-		                    {{/select}}
-		                </SELECT>
-		                <input type="a" value="{{localize 'liber.choisir'}}" class="racechoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #a10001;color:#ddd;">
-		                <h1 style="margin-top: 20px">{{localize 'liber.faction'}}</h1>
-						<SELECT class="factionliste" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;" name="system.background.religion">
-		                    {{#select actor.system.background.religion}}
-			                    <option value="{{localize 'liber.empire'}}">{{localize 'liber.empire'}}</option>
-			                    <option value="{{localize 'liber.pleide'}}">{{localize 'liber.pleide'}}</option>
-			                    <option value="{{localize 'liber.omc'}}">{{localize 'liber.omc'}}</option>
-			                    <option value="{{localize 'liber.fede'}}">{{localize 'liber.fede'}}</option>
-			                    <option value="{{localize 'liber.rebel'}}">{{localize 'liber.rebel'}}</option>
-			                    <option value="{{localize 'liber.fan'}}">{{localize 'liber.fan'}}</option>
-			                {{/select}}
-		                </SELECT>
-		                <input type="a" value="{{localize 'liber.choisir'}}" class="factionchoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #a10001;color:#ddd;">
-		                <h1 style="margin-top: 20px">{{localize 'liber.metier'}}</h1>
-						<SELECT class="metierliste" size="1" style="width: 50%; margin: 3px;background: #0d0d0d;color: #fff;" name="system.background.metier">
-		                    {{#select actor.system.background.metier}}
-			                    <option value="{{localize 'liber.metier1'}}">{{localize 'liber.metier1'}}</option>
-			                    <option value="{{localize 'liber.metier2'}}">{{localize 'liber.metier2'}}</option>
-			                    <option value="{{localize 'liber.metier3'}}">{{localize 'liber.metier3'}}</option>
-			                    <option value="{{localize 'liber.metier4'}}">{{localize 'liber.metier4'}}</option>
-			                    <option value="{{localize 'liber.metier5'}}">{{localize 'liber.metier5'}}</option>
-			                    <option value="{{localize 'liber.metier6'}}">{{localize 'liber.metier6'}}</option>
-			                    <option value="{{localize 'liber.metier7'}}">{{localize 'liber.metier7'}}</option>
-			                    <option value="{{localize 'liber.metier8'}}">{{localize 'liber.metier8'}}</option>
-			                    <option value="{{localize 'liber.metier9'}}">{{localize 'liber.metier9'}}</option>
-			                    <option value="{{localize 'liber.metier10'}}">{{localize 'liber.metier10'}}</option>
-			                    <option class="andromede" value="{{localize 'liber.metier11'}}">{{localize 'liber.metier11'}}</option>
-			                {{/select}}
-		                </SELECT>
-		                <input type="a" value="Choisir" class="metierchoix" style="width: 40%;padding:5px;float: right;margin: 4px;background: #a10001;color:#ddd;">
-		                <div class="grid-2col">
-		                	<h1 style="margin-top: 20px">{{localize 'liber.comp'}}</h1>
-		                	<input type="text" name="system.nomcomp" value="{{actor.system.nomcomp}}" placeholder="Con. Spec." style="float: left;background: #0d0d0d;width: 95%;">
-		                </div>
-		                <div class="grid-2col">
-		                	<h1 style="margin-top: 18px">{{localize 'liber.mut'}}</h1>
-		                	<SELECT class="mutation" size="1" style="margin: 3px;background: #0d0d0d;color: #fff;width: 95%" name="system.mutation">
-			                	{{#select actor.system.mutation}}
-				                    <option value="non">Non</option>
-				                    <option value="oui">Oui</option>
-				                {{/select}}
-			            	</SELECT>
-		                </div>
-		                <div class="clear"></div>
-		                <div class="grid-2col">
-		                	<h1 style="margin-top: 20px">Andromède</h1>
-							<SELECT class="andomedes" size="1" style="width: 380px; margin: 3px;background: #0d0d0d;color: #fff;" name="system.andomedes">
-			                    {{#select actor.system.andomedes}}
-				                    <option value="non">{{localize 'liber.non'}}</option>
-				                    <option value="oui">{{localize 'liber.oui'}}</option>
-				                {{/select}}
-			                </SELECT>	
-		                </div>
-		                
-		                				
-						
-					</div>
-				</section>
-    		</div>
-    	</div>
-	</div>
-</div>
-</form-->
-<form class="{{cssClass}} Liber flexcol" autocomplete="off">
+<form class="{{cssClass}} eveildunean flexcol" autocomplete="off">
 <div class="fiche">
 	{{!-- Sheet Header --}}
-	<div style="width: 592px;float: left;display: inline-block;">
-		<div class="sheet-header flexcol" id="pj-titre" style="flex: 0 0 515px;">
-			<div class="head">
-				<div class="avatar"> 
-					<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+	<div class="part1">
+		<div class="photo"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+		<div class="head">
+			<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+			<div class="rexrow">
+				<p>{{localize 'eveildunean.race'}} : <input class="race" type="text" name="system.race" value="{{actor.system.race}}" placeholder="{{localize 'eveildunean.race'}}"/></p>
+				<div class="grid-2col" style="width:60%">
+					<p>Métier : <input class="metier" name="system.metier" type="text" value="{{actor.system.background.metier}}" placeholder=""/></p>
 				</div>
-				<div class="headtext">
-					<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-					<div class="rexrow">
-						<div class="grid-3col">
-							<p>{{localize 'liber.race'}} : <input class="race" type="text" name="system.race" value="{{actor.system.race}}" placeholder="{{localize 'liber.race'}}"/></p>
-						</div>
-						<div class="grid-3col">
-							<p>Métier : <input class="metier" name="system.metier" type="text" value="{{actor.system.background.metier}}" placeholder=""/></p>
-						</div>
-						<div class="grid-3col">
-							<p>Age : <input class="niveau" name="system.level" type="text" value="{{actor.system.level}}" placeholder="1"/></p>
-						</div>
-						<div class="separator"></div>
-						
-					</div>
-					
+				<div class="grid-2col" style="width:25%">
+					<p>Age : <input class="niveau" name="system.level" type="text" value="{{actor.system.level}}" placeholder="1"/></p>
+				</div>		
+			</div>
+			<div class="col2">
+				<p>❤ HP</p><input class="hp" name="system.stat.hp.value" type="text" value="{{actor.system.stat.hp.value}}" placeholder="10" /><span>/</span><input class="hpmax" name="system.stat.hp.max" type="text" value="{{actor.system.stat.hp.max}}" placeholder="10"/>
+			</div>
+			<div class="col2">
+				<div class="col21">
+					<p>🛡 Armure</p><input class="actarm" name="system.stat.armure.value" type="text" value="{{actor.system.stat.armure.value}}" placeholder="0"/><span >/</span><input class="actarmmax" name="system.stat.armure.max" type="text" value="{{actor.system.stat.armure.max}}" placeholder="0">
+				</div>
+				<div class="col21">
+					<p>🛡 Protection</p><input class="actbou" name="system.stat.protections.value" type="text" value="{{actor.system.stat.protections.value}}" placeholder="0"  /><span >/</span><input  class="actboumax" name="system.stat.protections.max" type="text" value="{{actor.system.stat.protections.max}}" placeholder="0" />
 				</div>
 			</div>
 		</div>
 		<main>
-			<h2>{{localize 'liber.histoire'}}</h2>
+			
+			<h2>{{localize 'eveildunean.histoire'}}</h2>
 				<textarea class="histoire" name="system.histoire">{{actor.system.histoire}}</textarea>
-			<h2>Info joueur</h2>
-			<div class="rexrow stat">
-				<div class="grid-2col">
-					<p><span class="deno">❤ HP</span><input class="hp" name="system.stat.hp.value" type="text" value="{{actor.system.stat.hp.value}}" placeholder="10" style="width: 40px;"/><span style="display: inline-block;">/</span><input class="hpmax" name="system.stat.hp.max" type="text" value="{{actor.system.stat.hp.max}}" placeholder="10" style="float: none;" />
-				</div>
-				<div class="grid-2col">
-					<p><span class="deno">🛡 Armure</span><input class="actarm" name="system.stat.armure.value" type="text" value="{{actor.system.stat.armure.value}}" placeholder="0" style="width: 40px;" /><span style="display: inline-block;">/</span><input class="actarmmax" name="system.stat.armure.max" type="text" value="{{actor.system.stat.armure.max}}" placeholder="0"  style="float: none;"/></p>
-					 </p>
-				</div>
+				<div class="stat">
+						<div class="compt"><a class="jetdedes" data-name="Agilité" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Agilité}}">{{localize 'eveildunean.agil'}}</a>
+						<input class="cpt0" name="system.attributs.Agilité" type="text" value="{{actor.system.attributs.Agilité}}" placeholder="{{actor.system.attributs.Agilité}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Artisanat" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Artisanat}}" title="Construire / Réparer Objet">{{localize 'eveildunean.arti'}}*</a>
+						<input class="cpt1" name="system.attributs.Artisanat" type="text" value="{{actor.system.attributs.Artisanat}}" placeholder="{{actor.system.attributs.Artisanat}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Balistique" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Balistique}}" title="Réparer les armes / Fabriquer munition">{{localize 'eveildunean.bali'}}*</a>
+						<input class="cpt2" name="system.attributs.Balistique" type="text" value="{{actor.system.attributs.Balistique}}" placeholder="{{actor.system.attributs.Balistique}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Combat" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Combat}}">{{localize 'eveildunean.comb'}}</a>
+						<input class="cpt3" name="system.attributs.Combat" type="text" value="{{actor.system.attributs.Combat}}" placeholder="{{actor.system.attributs.Combat}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="ConGén" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.ConGén}}">{{localize 'eveildunean.cong'}}</a>
+						<input class="cpt4" name="system.attributs.ConGén" type="text" value="{{actor.system.attributs.ConGén}}" placeholder="{{actor.system.attributs.ConGén}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="ConSpécif" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.ConSpécif}}">ConSpécif</a>
+						<input class="cpt5" name="system.attributs.ConSpécif" type="text" value="{{actor.system.attributs.ConSpécif}}" placeholder="{{actor.system.attributs.ConSpécif}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Dextérité" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Dextérité}}">{{localize 'eveildunean.dext'}}</a>
+						<input class="cpt6" name="system.attributs.Dextérité" type="text" value="{{actor.system.attributs.Dextérité}}" placeholder="{{actor.system.attributs.Dextérité}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Diplomatie" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Diplomatie}}">{{localize 'eveildunean.dipl'}}</a>
+						<input class="cpt7" name="system.attributs.Diplomatie" type="text" value="{{actor.system.attributs.Diplomatie}}" placeholder="{{actor.system.attributs.Diplomatie}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Discrétion" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Discrétion}}">{{localize 'eveildunean.disc'}}</a>
+						<input class="cpt8" name="system.attributs.Discrétion" type="text" value="{{actor.system.attributs.Discrétion}}" placeholder="{{actor.system.attributs.Discrétion}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Force" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Force}}">{{localize 'eveildunean.forc'}}</a>
+						<input class="cpt9" name="system.attributs.Force" type="text" value="{{actor.system.attributs.Force}}" placeholder="{{actor.system.attributs.Force}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Investigation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Investigation}}">{{localize 'eveildunean.inve'}}</a>
+						<input class="cpt10" name="system.attributs.Investigation" type="text" value="{{actor.system.attributs.Investigation}}" placeholder="{{actor.system.attributs.Investigation}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Jeu" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Jeu}}">{{localize 'eveildunean.ajeu'}}</a>
+						<input class="cpt11" name="system.attributs.Jeu" type="text" value="{{actor.system.attributs.Jeu}}" placeholder="{{actor.system.attributs.Jeu}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Mécanique" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Mécanique}}" title="Réparer Véhicule">{{localize 'eveildunean.meca'}}*</a>
+						<input class="cpt12" name="system.attributs.Mécanique" type="text" value="{{actor.system.attributs.Mécanique}}" placeholder="{{actor.system.attributs.Mécanique}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Médecine" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Médecine}}">{{localize 'eveildunean.mede'}}</a>
+						<input class="cpt13" name="system.attributs.Médecine" type="text" value="{{actor.system.attributs.Médecine}}" placeholder="{{actor.system.attributs.Médecine}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Natation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Natation}}">{{localize 'eveildunean.nata'}}</a>
+						<input class="cpt14" name="system.attributs.Natation" type="text" value="{{actor.system.attributs.Natation}}" placeholder="{{actor.system.attributs.Natation}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Navigation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Navigation}}">{{localize 'eveildunean.navi'}}</a>
+						<input class="cpt15" name="system.attributs.Navigation" type="text" value="{{actor.system.attributs.Navigation}}" placeholder="{{actor.system.attributs.Navigation}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Négociation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Négociation}}">{{localize 'eveildunean.nego'}}</a>
+						<input class="cpt16" name="system.attributs.Négociation" type="text" value="{{actor.system.attributs.Négociation}}" placeholder="{{actor.system.attributs.Négociation}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Perception" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Perception}}">{{localize 'eveildunean.perc'}}</a>
+						<input class="cpt17" name="system.attributs.Perception" type="text" value="{{actor.system.attributs.Perception}}" placeholder="{{actor.system.attributs.Perception}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Pilotage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Pilotage}}">{{localize 'eveildunean.pilo'}}*</a>
+						<input class="cpt18" name="system.attributs.Pilotage" type="text" value="{{actor.system.attributs.Pilotage}}" placeholder="{{actor.system.attributs.Pilotage}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Piratage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Piratage}}">{{localize 'eveildunean.pira'}}*</a>
+						<input class="cpt19" name="system.attributs.Piratage" type="text" value="{{actor.system.attributs.Piratage}}" placeholder="{{actor.system.attributs.Piratage}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Pistage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Pistage}}">{{localize 'eveildunean.pist'}}</a>
+						<input class="cpt20" name="system.attributs.Pistage" type="text" value="{{actor.system.attributs.Pistage}}" placeholder="{{actor.system.attributs.Pistage}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Religion" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Religion}}">{{localize 'eveildunean.reli'}}</a>
+						<input class="cpt21" name="system.attributs.Religion" type="text" value="{{actor.system.attributs.Religion}}" placeholder="{{actor.system.attributs.Religion}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Science" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Science}}">{{localize 'eveildunean.scie'}}</a>
+						<input class="cpt22" name="system.attributs.Science" type="text" value="{{actor.system.attributs.Science}}" placeholder="{{actor.system.attributs.Science}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Survie" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Survie}}">{{localize 'eveildunean.surv'}}</a>
+						<input class="cpt23" name="system.attributs.Survie" type="text" value="{{actor.system.attributs.Survie}}" placeholder="{{actor.system.attributs.Survie}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes comptir" data-name="Tir" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Tir}}" data-armed="{{actor.system.attributs.armed}}" data-degat="{{actor.system.attributs.degatd}}" data-charged="{{actor.system.attributs.charged}}">{{localize 'eveildunean.atir'}}</a>
+						<input class="cpt24" name="system.attributs.Tir" type="text" value="{{actor.system.attributs.Tir}}" placeholder="{{actor.system.attributs.Tir}}"/>
+						</div>
+						<div class="compt"><a class="jetdedes" data-name="Visée" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Visée}}">{{localize 'eveildunean.vise'}}</a>
+						<input class="cpt25" name="system.attributs.Visée" type="text" value="{{actor.system.attributs.Visée}}" placeholder="{{actor.system.attributs.Visée}}"/>
+						</div>
+						<div class="clear"></div>
+
+						
+						<div class="col21">
+							<h2>{{localize 'eveildunean.restant'}}</h2>
+							<input class="pointrestant" type="text" value="0" readonly/>
+						</div>
+						<div class="col21">
+							<h2>{{localize 'eveildunean.bonusmj'}}</h2>
+							<input class="malussactor" name="system.malus" type="text" value="{{actor.system.malus}}" placeholder="0"/>
+						</div>
+			</div>
+
+			<!--div class="rexrow stat">
+				
 				<div class="etat outer">
 		    		<div class="inner">
 		    			<a class="etat0 chnget" data-lettre="0" data-etat="Endormi" style="opacity: {{actor.system.background.etat.a}};"></a>
@@ -281,231 +143,127 @@
 		    		</div>
 					
 				</div>
-			</div>
+			</div-->
 			<div class="clear"></div>
 		</main>
 	</div>
-	<div style="width: 592px;float: left;display: inline-block;">
-		<div class="autres">
-			{{!-- Sheet Tab Navigation --}}
-		    <nav class="sheet-tabs tabs" data-group="primary">
-		        <!--a class="item" data-tab="description">Description</a--><a class="item active" data-tab="features"><span>Attributs</span></a><a class="item" data-tab="items"><span>{{localize 'liber.invent'}}</span></a><a class="item" data-tab="spells"><span>{{localize 'liber.magic'}}</span></a>
-		    </nav>
-		    {{!-- Sheet Body --}}
-			<section class="sheet-body" style="overflow: auto;height: 717px;;">
-			    {{!-- Features Tab --}}
-				<div id="features" class="tab features"  data-group="primary" data-tab="features">
-					<h1 style="text-align: center;margin-top: 20px;">{{localize 'liber.base30'}}</h1>
-						<div class="compt"><a class="jetdedes" data-name="Agilité" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Agilité}}">{{localize 'liber.agil'}}</a>
-						<input class="cpt0" name="system.attributs.Agilité" type="text" value="{{actor.system.attributs.Agilité}}" placeholder="{{actor.system.attributs.Agilité}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Artisanat" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Artisanat}}" title="Construire / Réparer Objet">{{localize 'liber.arti'}}*</a>
-						<input class="cpt1" name="system.attributs.Artisanat" type="text" value="{{actor.system.attributs.Artisanat}}" placeholder="{{actor.system.attributs.Artisanat}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Balistique" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Balistique}}" title="Réparer les armes / Fabriquer munition">{{localize 'liber.bali'}}*</a>
-						<input class="cpt2" name="system.attributs.Balistique" type="text" value="{{actor.system.attributs.Balistique}}" placeholder="{{actor.system.attributs.Balistique}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Combat" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Combat}}">{{localize 'liber.comb'}}</a>
-						<input class="cpt3" name="system.attributs.Combat" type="text" value="{{actor.system.attributs.Combat}}" placeholder="{{actor.system.attributs.Combat}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="ConGén" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.ConGén}}">{{localize 'liber.cong'}}</a>
-						<input class="cpt4" name="system.attributs.ConGén" type="text" value="{{actor.system.attributs.ConGén}}" placeholder="{{actor.system.attributs.ConGén}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="ConSpécif" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.ConSpécif}}">{{actor.system.nomcomp}}</a>
-						<input class="cpt5" name="system.attributs.ConSpécif" type="text" value="{{actor.system.attributs.ConSpécif}}" placeholder="{{actor.system.attributs.ConSpécif}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Dextérité" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Dextérité}}">{{localize 'liber.dext'}}</a>
-						<input class="cpt6" name="system.attributs.Dextérité" type="text" value="{{actor.system.attributs.Dextérité}}" placeholder="{{actor.system.attributs.Dextérité}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Diplomatie" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Diplomatie}}">{{localize 'liber.dipl'}}</a>
-						<input class="cpt7" name="system.attributs.Diplomatie" type="text" value="{{actor.system.attributs.Diplomatie}}" placeholder="{{actor.system.attributs.Diplomatie}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Discrétion" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Discrétion}}">{{localize 'liber.disc'}}</a>
-						<input class="cpt8" name="system.attributs.Discrétion" type="text" value="{{actor.system.attributs.Discrétion}}" placeholder="{{actor.system.attributs.Discrétion}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Force" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Force}}">{{localize 'liber.forc'}}</a>
-						<input class="cpt9" name="system.attributs.Force" type="text" value="{{actor.system.attributs.Force}}" placeholder="{{actor.system.attributs.Force}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Investigation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Investigation}}">{{localize 'liber.inve'}}</a>
-						<input class="cpt10" name="system.attributs.Investigation" type="text" value="{{actor.system.attributs.Investigation}}" placeholder="{{actor.system.attributs.Investigation}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Jeu" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Jeu}}">{{localize 'liber.ajeu'}}</a>
-						<input class="cpt11" name="system.attributs.Jeu" type="text" value="{{actor.system.attributs.Jeu}}" placeholder="{{actor.system.attributs.Jeu}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Mécanique" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Mécanique}}" title="Réparer Véhicule">{{localize 'liber.meca'}}*</a>
-						<input class="cpt12" name="system.attributs.Mécanique" type="text" value="{{actor.system.attributs.Mécanique}}" placeholder="{{actor.system.attributs.Mécanique}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Médecine" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Médecine}}">{{localize 'liber.mede'}}</a>
-						<input class="cpt13" name="system.attributs.Médecine" type="text" value="{{actor.system.attributs.Médecine}}" placeholder="{{actor.system.attributs.Médecine}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Natation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Natation}}">{{localize 'liber.nata'}}</a>
-						<input class="cpt14" name="system.attributs.Natation" type="text" value="{{actor.system.attributs.Natation}}" placeholder="{{actor.system.attributs.Natation}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Navigation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Navigation}}">{{localize 'liber.navi'}}</a>
-						<input class="cpt15" name="system.attributs.Navigation" type="text" value="{{actor.system.attributs.Navigation}}" placeholder="{{actor.system.attributs.Navigation}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Négociation" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Négociation}}">{{localize 'liber.nego'}}</a>
-						<input class="cpt16" name="system.attributs.Négociation" type="text" value="{{actor.system.attributs.Négociation}}" placeholder="{{actor.system.attributs.Négociation}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Perception" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Perception}}">{{localize 'liber.perc'}}</a>
-						<input class="cpt17" name="system.attributs.Perception" type="text" value="{{actor.system.attributs.Perception}}" placeholder="{{actor.system.attributs.Perception}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Pilotage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Pilotage}}">{{localize 'liber.pilo'}}*</a>
-						<input class="cpt18" name="system.attributs.Pilotage" type="text" value="{{actor.system.attributs.Pilotage}}" placeholder="{{actor.system.attributs.Pilotage}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Piratage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Piratage}}">{{localize 'liber.pira'}}*</a>
-						<input class="cpt19" name="system.attributs.Piratage" type="text" value="{{actor.system.attributs.Piratage}}" placeholder="{{actor.system.attributs.Piratage}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Pistage" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Pistage}}">{{localize 'liber.pist'}}</a>
-						<input class="cpt20" name="system.attributs.Pistage" type="text" value="{{actor.system.attributs.Pistage}}" placeholder="{{actor.system.attributs.Pistage}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Religion" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Religion}}">{{localize 'liber.reli'}}</a>
-						<input class="cpt21" name="system.attributs.Religion" type="text" value="{{actor.system.attributs.Religion}}" placeholder="{{actor.system.attributs.Religion}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Science" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Science}}">{{localize 'liber.scie'}}</a>
-						<input class="cpt22" name="system.attributs.Science" type="text" value="{{actor.system.attributs.Science}}" placeholder="{{actor.system.attributs.Science}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes" data-name="Survie" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Survie}}">{{localize 'liber.surv'}}</a>
-						<input class="cpt23" name="system.attributs.Survie" type="text" value="{{actor.system.attributs.Survie}}" placeholder="{{actor.system.attributs.Survie}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="jetdedes comptir" data-name="Tir" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Tir}}" data-armed="{{actor.system.attributs.armed}}" data-degat="{{actor.system.attributs.degatd}}" data-charged="{{actor.system.attributs.charged}}">{{localize 'liber.atir'}}</a>
-						<input class="cpt24" name="system.attributs.Tir" type="text" value="{{actor.system.attributs.Tir}}" placeholder="{{actor.system.attributs.Tir}}" style="text-align: center"/>
-						</div>
-						<div class="compt"><a class="my-popup-button" data-name="Visée" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.Visée}}">{{localize 'liber.vise'}}</a>
-						<input class="cpt25" name="system.attributs.Visée" type="text" value="{{actor.system.attributs.Visée}}" placeholder="{{actor.system.attributs.Visée}}" style="text-align: center"/>
-						</div>
-						<div class="compt  andromede"><a class="jetdedes" data-name="Magie" data-dice="1d" data-actionvalue="{{actor.system.attributs.bonus}}" data-attDice="{{actor.system.attributs.magie}}">{{localize 'liber.psy'}}</a>
-						<input class="cpt26" name="system.attributs.magie" type="text" value="{{actor.system.attributs.magie}}" placeholder="{{actor.system.attributs.magie}}" style="text-align: center"/>
-						</div>
-						<div class="clear"></div>
-						<p style="color: #f0f0e0;font-size: 0.9em;margin-top:50px">{{localize 'liber.caution2'}}</p>
-						<p style="color: #f0f0e0;font-size: 0.9em;font-style: italic;">{{localize 'liber.caution'}}</p>
+	<div class="part2">
+
 						
-						<div class="grid-2col" style="margin-top: 20px">
-							<h2 style="text-align:center;font-family:'spaceage'">{{localize 'liber.restant'}}</h2>
-							<input class="pointrestant" style="width:150px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 75px);font-family:'spaceage'" type="text" value="0" readonly/>
-						</div>
-						<div class="grid-2col" style="margin-top: 20px">
-							<h2 style="text-align:center;font-family:'spaceage'">{{localize 'liber.bonusmj'}}</h2>
-							<input class="malussactor" style="width:150px;border: none;background: none; font-size: 50px;height:50px;color: #fff; text-align: center;margin-left: calc(50% - 75px);font-family:'spaceage'" name="system.malus" type="text" value="{{actor.system.malus}}" placeholder="0"/>
-						</div>
-				</div>
+			<h2>{{localize 'eveildunean.armes'}}</h2>
+			<ol class="items-list">
+                <li class="item rexrow item-header">
+                  <div class="item-name">{{localize 'eveildunean.nom'}}</div>
+                  <div class="item-genre">Type</div>
+                  <div class="item-portee">{{localize 'eveildunean.l1'}}</div>
+                  <div class="item-dommage">{{localize 'eveildunean.l2'}}</div>
+                  <div class="item-poids">{{localize 'eveildunean.l3'}}</div>
+                  <div class="item-valeur">{{localize 'eveildunean.l4'}}</div>
+                  <div class="item-qty">{{localize 'eveildunean.l6'}}</div>
+                  <div class="item-controls"></div>
+                </li>
+            {{#each actor.arme as |item id|}}
+                <li class="item rexrow" data-item-id="{{item._id}}">
+                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="background: url({{item.img}}) left center no-repeat;background-size: contain;">{{item.name}}</div>
+                    <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
+                    <div class="item-portee">{{item.system.portee}}</div>
+                    <div class="item-dommage">{{item.system.degats}}</div>
+                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-valeur">{{item.system.valeur}}</div>
+                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+
+                </li>
+            {{/each}}
+    		</ol>
+	    	<h2 style="margin-top: 20px">{{localize 'eveildunean.armures'}}</h2>
+			<ol class="items-list">
+                <li class="item rexrow item-header">
+                  <div class="item-name">{{localize 'eveildunean.nom'}}</div>
+                  <div class="item-genre">Type</div>
+                  <div class="item-portee">{{localize 'eveildunean.l7'}}</div>
+                  <div class="item-dommage">{{localize 'eveildunean.l8'}}</div>
+                  <div class="item-poids">{{localize 'eveildunean.l3'}}</div>
+                  <div class="item-valeur">{{localize 'eveildunean.l4'}}</div>
+                  <div class="item-qty">{{localize 'eveildunean.l6'}}</div>
+                  <div class="item-controls">
+                  </div>
+                </li>
+            {{#each actor.armure as |item id|}}
+                <li class="item rexrow" data-item-id="{{item._id}}">
+                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="background: url({{item.img}}) left center no-repeat;background-size: contain;">{{item.name}}</div>
+                    <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
+                    <div class="item-portee">{{item.system.resitance}}</div>
+                    <div class="item-dommage">{{item.system.hp.max}}</div>
+                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-valeur">{{item.system.valeur}}</div>
+                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+    		</ol>
+	    	<h2 style="margin-top: 20px">{{localize 'eveildunean.inv'}} <a class="item-control item-create" title="Create Item" data-type="objet" style="float: right;"><i class="fas fa-plus"></i></a></h2>
+			<ol class="items-list">
+                <li class="item rexrow item-header">
+                  <div class="item-name" style="width:calc(100% -  220px);">{{localize 'eveildunean.nom'}}</div>
+                  <div class="item-genre">Type</div>
+                  <div class="item-poids">{{localize 'eveildunean.l3'}}</div>
+                  <div class="item-valeur">{{localize 'eveildunean.l4'}}</div>
+                  <div class="item-qty">{{localize 'eveildunean.l6'}}</div>
+                  <div class="item-controls">
+                  </div>
+                </li>
+            {{#each actor.inventaire as |item id|}}
+                <li class="item rexrow" data-item-id="{{item._id}}">
+                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="background: url({{item.img}}) left center no-repeat;background-size: contain;width:calc(100% -  220px);">{{item.name}}</div>
+                    <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
+                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-valeur">{{item.system.valeur}}</div>
+                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+            {{/each}}
+    		</ol>
+
+			<h2 style="margin-top: 20px">{{localize 'eveildunean.sort'}}</h2>
+			<ol class="items-list">
+                <li class="item rexrow item-header">
+                  <div class="item-name" style="width:calc(100% -  240px);">{{localize 'eveildunean.nom'}}</div>              
+                  <div class="item-genre" style="width:60px;">{{localize 'eveildunean.type'}}</div>
+                  <div class="item-portee">Lvl</div>
+                  <div class="item-poids">Utiliser</div>
+                  <div class="item-qty"></div>
+                  <div class="item-controls">
+                  </div>
+                </li>
+            {{#each actor.sort as |item id|}}
+                <li class="item rexrow" data-item-id="{{item._id}}">
+                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="width:calc(100% -  240px);background: url({{item.img}}) left center no-repeat;background-size: contain;">{{item.name}}</div>
+                    <div class="item-genre" title="{{item.system.genre}}" style="width:60px;">{{item.system.genre}}</div>
+                    <div class="item-portee">{{item.system.portee}}</div>
+                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-qty">/ {{item.system.quantite}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+
+                </li>
+            {{/each}}
+    		</ol>
+	</div>
+					
 
 				
-				{{!-- Items Tab --}}
-				<div id="items" class="tab items" data-group="primary" data-tab="items">
-					<div class="encom"><div class="barenc"></div>
-						<p>{{localize 'liber.encombrement'}} <input class="encours" name="system.encombrement.value" type="text" value="{{actor.system.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
-						<input class="enc" name="system.encombrement.max" type="text" value="{{actor.system.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'liber.kg'}}</p>
-					</div>
-
-					<div class="grid-2col" style="text-align: center">
-						<ul class="items-list">
-						{{#each actor.argent as |item id|}}
-			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-			                    <div class="item-poids">{{item.system.poids}}</div>
-			                    <div class="item-qty">{{item.system.quantite}}</div>
-			                    <div class="item-controls">
-			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-			                    </div>
-			                </li>
-			            {{/each}}
-			        	</ul>
-				     </div>
-				     <div class="clear"></div>
-					<h2>{{localize 'liber.invent'}} <a class="item-control item-create" title="Create Item" data-type="objet" style="float: right;"><i class="fas fa-plus"></i></a></h2>
-
-						<ol class="items-list">
-			                <li class="item fexrow item-header">
-			                  <div class="item-image"></div>
-			                  <div class="item-name">{{localize 'liber.name'}}</div>
-			                  <div class="item-type">{{localize 'liber.type'}}</div>
-			                  <!--div class="item-description">{{localize 'liber.descri'}}</div-->               
-			                  <div class="item-portee">{{localize 'liber.pte'}}</div>
-			                  <div class="item-dommage">{{localize 'liber.dgt'}}</div>
-			                  <div class="item-poids">{{localize 'liber.pds'}}</div>
-			                  <div class="item-valeur">{{localize 'liber.ecu'}}</div>
-			                  <div class="item-qty">{{localize 'liber.qte'}}</div>
-			                  <div class="item-hand"></div>
-			                  <div class="item-controls">
-			                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
-			                  </div>
-			                </li>
-			            </ol>
-			            <ul class="items-list">
-			            {{#each actor.inventaire as |item id|}}
-			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
-			                    <div class="item-name" title="{{item.name}}">{{item.name}}</div>
-			                    <div class="item-type" title="{{item.type}}">{{item.type}}</div>
-			                   
-			                    <div class="item-portee">{{item.system.portee}}</div>
-			                    <!--div class="item-dommage jetdedegat" data-name="{{item.name}}" data-dice="{{item.system.degat}}">{{item.system.degats}}</div-->
-			                    <div class="item-dommage">{{item.system.degats}}</div>
-			                    <div class="item-poids">{{item.system.poids}}</div>
-			                    <div class="item-valeur">{{item.system.valeur}}</div>
-			                    <div class="item-qty">{{item.system.quantite}}</div>
-			                    <div class="item-hand"><span class="maingauche" title="main gauche" name="{{item.name}}" degat="{{item.system.degats}}"></span><span class="maindroite" title="main droite" name="{{item.name}}" degat="{{item.system.degats}}"></span><span class="armor" title="Armure" name="{{item.name}}" ></span></div>
-			                    <div class="item-controls">
-			                    	<a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-			                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-			                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-			                    </div>
-
-			                     <div class="item-description"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
-			                </li>
-			            {{/each}}
-		        		</ul>
-				</div>
-
-				{{!-- Pouvoirs Tab --}}
-				<div id="spells" class="tab spells" data-group="primary" data-tab="spells">
-				        <ol class="items-list">
-			                <li class="item fexrow item-header">
-			                  <div class="item-image"></div>
-			                  <div class="item-name">{{localize 'liber.name'}}</div>
-			                  <div class="item-classe">{{localize 'liber.class'}}</div>
-			                  <!--div class="item-description2">{{localize 'liber.descri'}}</div-->               
-			                  <div class="item-cible">{{localize 'liber.cible'}}</div>
-			                  <div class="item-duree">{{localize 'liber.duree'}}</div>
-			                  <div class="item-cout">{{localize 'liber.cost'}}</div>
-			                  
-			                  <div class="item-controls">
-			                    <!--a class="item-control item-create" title="Create item" data-type="armes"><i class="fas fa-plus"></i> Add item</a-->
-			                  </div>
-			                </li>
-			            {{#each actor.sort as |item id|}}
-			                <li class="item fexrow" data-item-id="{{item._id}}">
-			                    <div class="item-image"><a class="item-control item-lancer" title="Lancer Sort" data-name="{{item.name}}" data-cout="{{item.system.cout}}"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a></div>
-			                    <div class="item-name"><span title="{{item.name}}">{{item.name}}</span></div>
-			                    <div class="item-classe">{{item.system.classe}}</div>
-			                    
-			                    <div class="item-cible">{{item.system.cible}}</div>
-			                    <div class="item-duree">{{item.system.duree}}</div>
-			                    <div class="item-cout">{{item.system.cout}}</div>
-			                    <div class="item-controls">
-			                        <a class="item-control item-desc" title="Desc Sort">&#128712;</a>
-			                        <a class="item-control item-edit" title="Edit Sort"><i class="fas fa-edit"></i></a>
-			                        <a class="item-control item-delete" title="Delete Sort"><i class="fas fa-trash"></i></a>
-			                    </div>
-
-			                    <div class="item-description2"><span title="{{item.system.description}}">{{item.system.description}}</span></div>
-			                </li>
-			            {{/each}}
-		        		</ol>
-				    <div class="grid-2col" style="text-align: center;color:#fff">
-				    </div>
-				    <div class="grid-2col" style="text-align: center;color:#fff">
-				    	<input class="maxsort mot" name="system.mot" type="text" value="{{actor.system.mot}}" placeholder="10" style="text-align: center" readonly /><br>{{localize 'liber.nb'}}
-				    </div>
-				    <div class="clear"></div>
-				    
-				</div>
-			</section>
-		</div>
-	</div>	
+	
 </div>
 </form>

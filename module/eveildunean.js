@@ -1,13 +1,13 @@
-import { neanActor } from"./sheets/neanactor.js";
-import { neanActorSheet } from "./sheets/neanactorsheet.js";
-import { neanItem } from "./sheets/neanitem.js";
-import { neanItemSheet } from "./sheets/neanitemsheet.js";
+import { eveilduneanActor } from"./sheets/eveilduneanactor.js";
+import { eveilduneanActorSheet } from "./sheets/eveilduneanactorsheet.js";
+import { eveilduneanItem } from "./sheets/eveilduneanitem.js";
+import { eveilduneanItemSheet } from "./sheets/eveilduneanitemsheet.js";
 
 
 Hooks.once("init", async function() {
-    console.log("Eveil du néan | Initialisation du système nean Chronicles");
-	CONFIG.Actor.documentClass = neanActor;
-    CONFIG.Item.documentClass = neanItem;
+    console.log("Eveil du néan | Initialisation du système eveildunean Chronicles");
+	CONFIG.Actor.documentClass = eveilduneanActor;
+    CONFIG.Item.documentClass = eveilduneanItem;
 
     CONFIG.Combat.initiative = {
 	    formula: "30+@Perception",
@@ -15,10 +15,10 @@ Hooks.once("init", async function() {
 	};
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("nean", neanItemSheet, { makeDefault: true });
+    Items.registerSheet("eveildunean", eveilduneanItemSheet, { makeDefault: true });
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("nean", neanActorSheet, { makeDefault: true });
+    Actors.registerSheet("eveildunean", eveilduneanActorSheet, { makeDefault: true });
 });
 
 Hooks.on('renderActorSheet', (app, html, data) => {
