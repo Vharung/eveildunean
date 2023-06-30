@@ -4,6 +4,7 @@ body{font-family: 'Chakra Petch', sans-serif;}
 .eveildunean.window-app .window-content{overflow:hidden }
 .eveildunean .part1, .eveildunean .part2{width: calc(50% - 20px);background: url(../css/paper.jpg);float: left;margin: 50px 0px 0 20px;height: calc(100% - 60px);}
 .eveildunean .part2{padding:5px;}
+.eveildunean .trombone{background:url("../css/trombone.png");background-size: cover;width: 42px;height: 88px;display: block;position: absolute;top: 26px;left: 50px;rotate: 292deg;pointer-events: none;}
 
 .eveildunean .photo{background: url("../css/photo.png");background-size: cover; height: 300px; width: 300px;top: 40px;position: absolute;left: 2px;}
 .eveildunean .photo img{rotate: 342deg;height: 210px;width: 210px;position: relative;top: 45px;left: 47px}

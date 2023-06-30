@@ -2,7 +2,7 @@
 <div class="fiche">
 	{{!-- Sheet Header --}}
 	<div class="part1">
-		<div class="photo"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+		<div class="photo"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /><div class="trombone"></div></div>
 		<div class="head">
 			<input class="nomperso" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 			<div class="rexrow">
@@ -237,21 +237,23 @@
 			<h2 style="margin-top: 20px">{{localize 'eveildunean.sort'}}</h2>
 			<ol class="items-list">
                 <li class="item rexrow item-header">
-                  <div class="item-name" style="width:calc(100% -  240px);">{{localize 'eveildunean.nom'}}</div>              
+                  <div class="item-name" style="width:calc(100% -  300px);">{{localize 'eveildunean.nom'}}</div>              
                   <div class="item-genre" style="width:60px;">{{localize 'eveildunean.type'}}</div>
+                  <div class="item-genre" style="width:60px;">Type</div>
                   <div class="item-portee">Lvl</div>
-                  <div class="item-poids">Utiliser</div>
-                  <div class="item-qty"></div>
+                  <div class="item-poids">Util.</div>
+                  <div class="item-qty">Max/J</div>
                   <div class="item-controls">
                   </div>
                 </li>
             {{#each actor.sort as |item id|}}
                 <li class="item rexrow" data-item-id="{{item._id}}">
-                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="width:calc(100% -  240px);background: url({{item.img}}) left center no-repeat;background-size: contain;">{{item.name}}</div>
+                    <div class="item-name" title="{{item.name}} {{item.system.description}}" style="width:calc(100% -  300px);background: url({{item.img}}) left center no-repeat;background-size: contain;">{{item.name}}</div>
                     <div class="item-genre" title="{{item.system.genre}}" style="width:60px;">{{item.system.genre}}</div>
+                    <div class="item-genre" title="{{item.system.techno}}" style="width:60px;">{{item.system.techno}}</div>
                     <div class="item-portee">{{item.system.portee}}</div>
                     <div class="item-poids">{{item.system.poids}}</div>
-                    <div class="item-qty">/ {{item.system.quantite}}</div>
+                    <div class="item-qty">{{item.system.quantite}}</div>
                     <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
