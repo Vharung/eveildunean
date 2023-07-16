@@ -148,9 +148,14 @@
 		</main>
 	</div>
 	<div class="part2">
+		<div class="encom">
+						<p style="text-align: center;margin-top: 0">{{localize 'eveildunean.encombrement'}} <input class="encours" name="system.stat.encombrement.value" type="text" value="{{actor.system.stat.encombrement.value}}" placeholder="0" style="width: 40px;" readonly=""/> / 
+						<input class="enc" name="system.stat.encombrement.max" type="text" value="{{actor.system.stat.encombrement.max}}" placeholder="0" style="width: 40px;" readonly="" /> {{localize 'eveildunean.kg'}}</p>
+						<div class="barenc" style="height: 2px;margin-top: 5px;margin-bottom: 5px"></div>
+					</div>
 
 						
-			<h2>{{localize 'eveildunean.armes'}}</h2>
+			<h2>{{localize 'eveildunean.armes'}}<a class="item-control item-create" title="Create Item" data-type="arme" style="float: right;"><i class="fas fa-plus"></i></a></h2>
 			<ol class="items-list">
                 <li class="item rexrow item-header">
                   <div class="item-name">{{localize 'eveildunean.nom'}}</div>
@@ -168,9 +173,9 @@
                     <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
                     <div class="item-portee">{{item.system.portee}}</div>
                     <div class="item-dommage">{{item.system.degats}}</div>
-                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-poid">{{item.system.poids}}</div>
                     <div class="item-valeur">{{item.system.valeur}}</div>
-                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-qt">{{item.system.quantite}}</div>
                     <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -179,7 +184,7 @@
                 </li>
             {{/each}}
     		</ol>
-	    	<h2 style="margin-top: 20px">{{localize 'eveildunean.armures'}}</h2>
+	    	<h2 style="margin-top: 20px">{{localize 'eveildunean.armures'}}<a class="item-control item-create" title="Create Item" data-type="armure" style="float: right;"><i class="fas fa-plus"></i></a></h2>
 			<ol class="items-list">
                 <li class="item rexrow item-header">
                   <div class="item-name">{{localize 'eveildunean.nom'}}</div>
@@ -198,9 +203,9 @@
                     <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
                     <div class="item-portee">{{item.system.resitance}}</div>
                     <div class="item-dommage">{{item.system.hp.max}}</div>
-                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-poid">{{item.system.poids}}</div>
                     <div class="item-valeur">{{item.system.valeur}}</div>
-                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-qt">{{item.system.quantite}}</div>
                     <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -223,9 +228,9 @@
                 <li class="item rexrow" data-item-id="{{item._id}}">
                     <div class="item-name" title="{{item.name}} {{item.system.description}}" style="background: url({{item.img}}) left center no-repeat;background-size: contain;width:calc(100% -  220px);">{{item.name}}</div>
                     <div class="item-genre" title="{{item.system.genre}}">{{item.system.genre}}</div>
-                    <div class="item-poids">{{item.system.poids}}</div>
+                    <div class="item-poid">{{item.system.poids}}</div>
                     <div class="item-valeur">{{item.system.valeur}}</div>
-                    <div class="item-qty">{{item.system.quantite}}</div>
+                    <div class="item-qt">{{item.system.quantite}}</div>
                     <div class="item-controls">
                         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -234,7 +239,7 @@
             {{/each}}
     		</ol>
 
-			<h2 style="margin-top: 20px">{{localize 'eveildunean.sort'}}</h2>
+			<h2 style="margin-top: 20px">{{localize 'eveildunean.sort'}}<a class="item-control item-create" title="Create Item" data-type="sort" style="float: right;"><i class="fas fa-plus"></i></a></h2>
 			<ol class="items-list">
                 <li class="item rexrow item-header">
                   <div class="item-name" style="width:calc(100% -  300px);">{{localize 'eveildunean.nom'}}</div>              

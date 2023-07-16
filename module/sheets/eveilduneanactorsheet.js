@@ -98,41 +98,16 @@
         /*Jet de des*/
         html.find('.jetdedes').click(this._onRoll.bind(this)); 
 
-        html.find('.item-equip').click(this._onArmor.bind(this));
-        html.find('.desequi').click(this._onDesArmor.bind(this));
-        html.find('.update').click(this._onNivArmor.bind(this))
-        //choix Race
-        html.find('.racechoix').click(this._onAvantageRace.bind(this));
-        html.find('.metierchoix').click(this._onAvantageJob.bind(this));
-        //caractere aléatoire
-        html.find('.genererp').click(this._onEarth.bind(this));
-        html.find('.generator').click(this._onStory2.bind(this));
-        html.find('.caractergen').click(this._onStory.bind(this));
-        html.find('.aleatoire').click(this._onAleatoire.bind(this));
+        
         /*Etat*/
-        html.find('.action6').click(this._onCouv.bind(this));
-        html.find('.chnget').click(this._onCouv.bind(this));
         html.find('.vehichoix').click(this._onVehi.bind(this))
         /*edition items*/
         html.find('.item-edit').click(this._onItemEdit.bind(this));
 
 
         let niva=html.find('.cpt2').val();
-        let armetoile='';
         let rac=html.find('.raceliste').val();
-        if(rac=="Elfen"){niva=parseInt(niva)+10}
-        if(niva<0){armetoile='✬ ☆ ☆ ☆ ☆'}
-        else if(niva<5){armetoile='★ ☆ ☆ ☆ ☆'}
-        else if(niva<10){armetoile='★ ✬ ☆ ☆ ☆'}
-        else if(niva<15){armetoile='★ ★ ☆ ☆ ☆'}
-        else if(niva<20){armetoile='★ ★ ✬ ☆ ☆'}
-        else if(niva<25){armetoile='★ ★ ★ ☆ ☆'}
-        else if(niva<30){armetoile='★ ★ ★ ✬ ☆'}
-        else if(niva<35){armetoile='★ ★ ★ ★ ☆'}
-        else if(niva<40){armetoile='★ ★ ★ ★ ✬'}
-        else {armetoile='★ ★ ★ ★ ★'}
-    console.log(armetoile)
-        html.find('.armetoile').html('(max '+armetoile+' )')
+        
 
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -166,180 +141,13 @@
                 $(this).parent().parent().css({"height":"30px"});
             }
         });
-
-        //choix faction
-        html.find('.factionchoix').on('click',function(){ 
-            var clanliste=html.find('.factionliste').val();
-            html.find('.faction').val(clanliste);
-        });
-
         
 
 
-        //calcul point restant
-        if(this.actor.type=="vehicule"){
-            var type=this.actor.system.type;
-            var tail=this.actor.system.taille;
-            var ptfixe=this.actor.system.pointrestant2;
-            if(type==1){
-                html.find('.types').val(game.i18n.localize("eveildunean.type1"));
-            }else if(type==2){
-                html.find('.types').val(game.i18n.localize("eveildunean.type2"));
-            }else if(type==3){ 
-                html.find('.types').val(game.i18n.localize("eveildunean.type3"));
-            }else if(type==4){
-                html.find('.types').val(game.i18n.localize("eveildunean.type4"));
-            }
-            if(tail==1){
-                html.find('.tailles').val(game.i18n.localize("eveildunean.taille1"));
-            }else if(tail==2){
-                html.find('.tailles').val(game.i18n.localize("eveildunean.taille2"));
-            }else if(tail==3){
-                html.find('.tailles').val(game.i18n.localize("eveildunean.taille3"));
-            }else if(tail==4){
-                html.find('.tailles').val(game.i18n.localize("eveildunean.taille4"));
-            }
-
-            var prix=[];
-            var quantite=[];
-            var total=this.actor.system.prixbase;
-            //var exo=html.find('.armurequi').val()
-            html.find( ".item-valeur" ).each(function( index ) {
-                if($( this ).text()!=game.i18n.localize('eveildunean.l4')){
-                    prix.push($( this ).text());
-                }
-                
-            });
-            //console.log(prix)
-            html.find( ".item-qt" ).each(function( index ) {
-                if($( this ).text()!=game.i18n.localize('eveildunean.l6')){
-                    quantite.push($( this ).text());
-                }
-            });
-            //console.log(quantite)
-
-            for (var i = 1;i < prix.length ; i++) {
-               total=total+parseFloat(prix[i])*parseFloat(quantite[i]);
-            }
-            console.log(total)
-            this.actor.update({'system.prix': total});
-        }
-
-            var clanliste=html.find('.raceliste').val();
-            var metierliste=html.find('.metierliste').val();
-            var metier=html.find('.metier').val();
-            var race=html.find('.race').val();
-            var ptrestant=html.find('.pointrestant').val();
-            var level=html.find('.niveau').val();
-            if(this.actor.type=="vehicule"){
-                var ptrestant2=this.actor.system.pointrestant2;
-                var resultat=parseInt(ptrestant2);
-            }else {
-                var resultat=0-((parseInt(level)-1)*10); 
-            }
-            for(i=0;i<26;i++){
-                var valor=parseInt(html.find('.cpt'+i).val());
-                resultat=resultat+valor;
-            }
+        
             
-            if(level==undefined){
-                resultat=resultat;
-            }else {
-                var hpmax=html.find('.hpmax').val();
-                var pointhp=(parseInt(hpmax)-20)*2;
-                resultat=resultat+pointhp; 
-            }
-            console.log(resultat)
-            html.find('.pointrestant').val(resultat); 
-
 
         
-
-        
-
-
-
-        /*Avantage*/
-        var avant=html.find('.avant').val();
-        var desan=html.find('.desan').val();
-        var solit=html.find('.solit').val();
-        if(avant>0){
-            html.find('.avant').css("opacity", "1");
-        }else {
-            html.find('.avant').css("opacity", "0.5");
-        }
-        if(desan>0){
-            html.find('.desan').css("opacity", "1");
-        }else {
-            html.find('.desan').css("opacity", "0.5");
-        }
-        if(solit>0){
-            html.find('.solit').css("opacity", "1");
-        }else {
-            html.find('.solit').css("opacity", "0.5");
-        }
-
-        
-
-        /*Ancienté*/
-        var ancien=html.find('.model').val();
-        var etoile="☆ ☆ ☆ ☆ ☆"
-        if(ancien=="Antiquité : ✬ ☆ ☆ ☆ ☆"){etoile="✬ ☆ ☆ ☆ ☆"}
-        else if(ancien=="Obsolette : ★ ☆ ☆ ☆ ☆"){etoile="★ ☆ ☆ ☆ ☆"}
-        else if(ancien=="Dépasser : ★ ✬ ☆ ☆ ☆"){etoile="★ ✬ ☆ ☆ ☆"}
-        else if(ancien=="Ancien  : ★ ★ ☆ ☆ ☆"){etoile="★ ★ ☆ ☆ ☆"}
-        else if(ancien=="Standard  : ★ ★ ✬ ☆ ☆"){etoile="★ ★ ✬ ☆ ☆"}
-        else if(ancien=="Récent  : ★ ★ ★ ☆ ☆"){etoile="★ ★ ★ ☆ ☆"}
-        else if(ancien=="Moderne : ★ ★ ★ ✬ ☆"){etoile="★ ★ ★ ✬ ☆"}
-        else if(ancien=="Avant-gardiste  : ★ ★ ★ ★ ☆"){etoile="★ ★ ★ ★ ☆"}
-        else if(ancien=="Futuriste : ★ ★ ★ ★ ✬"){etoile="★ ★ ★ ★ ✬"}
-        else if(ancien=="Prototype : ★ ★ ★ ★ ★"){etoile="★ ★ ★ ★ ★"}
-        html.find('.etoile').html(etoile);
-
-
-        ;
-
-
-        //+1 action si dext et agilité >30
-        var agi=html.find('.cpt0').val();
-        var dex=html.find('.cpt6').val();
-        if(agi >=30 && dex >=30){
-            html.find('.titreaction').html(game.i18n.localize("eveildunean.action2"))
-        }
-
-        //couleur bar
-        html.find( ".refbar" ).each(function( index ) {
-          var pc=$( this ).val();
-          var name=$( this ).attr('data-zone');
-          var z=0;var t='';
-          if(name=="tete"){
-            z=1;t='t';
-          } else if(name=="torse"){
-            z=2;t='to';
-          } else if(name=="bd"){
-            z=3;t='tbd';
-          } else if(name=="bg"){
-            z=4;t='tbg';
-          } else if(name=="jd"){
-            z=5;t='tjd';
-          } else if(name=="jg"){
-            z=6;t='tjg';
-          }
-          pc=(10-parseInt(pc))*10;
-          if(pc>'60'){
-            $('.zone.'+name+' .bar').css({'background':'#00abab','width':pc+'%'});
-            $('.z'+z).css({'background':' url(systems/eveildunean/assets/icon/'+t+'1.png) center center no-repeat'});
-          }else if(pc>'30'){
-            $('.zone.'+name+' .bar').css({'background':'#c9984b','width':pc+'%'});
-            $('.z'+z).css({'background':' url(systems/eveildunean/assets/icon/'+t+'2.png) center center no-repeat'});
-          }else if(pc<=0){
-            $('.zone.'+name+' .bar').css({'background':'#460000','width':pc+'%'});
-            $('.z'+z).css({'background':' url(systems/eveildunean/assets/icon/'+t+'0.png) center center no-repeat'});
-          }else{
-            $('.zone.'+name+' .bar').css({'background':'#a10001','width':pc+'%'});
-            $('.z'+z).css({'background':' url(systems/eveildunean/assets/icon/'+t+'3.png) center center no-repeat'});
-          }
-        });
 
         /*Poids encombrement*/
         var poids=[];
@@ -352,9 +160,11 @@
         html.find( ".item-qt" ).each(function( index ) {
           quantite.push($( this ).text());
         });
+        console.log(poids)
+        console.log(quantite)
 
 
-        for (var i = 1;i < poids.length ; i++) {
+        for (var i = 0;i < poids.length ; i++) {
            total=total+parseFloat(poids[i])*parseFloat(quantite[i]);
         }
         /*if(exo=="Exosquelette"){
@@ -486,7 +296,6 @@
         var arme = this.actor.system.armed;
         var chargequi = this.actor.system.charged;
         var degat = this.actor.system.degatd;
-        var etoiled = this.actor.system.etoiled;
 
         var balistique=this.actor.system.Balistique;
 
@@ -509,29 +318,7 @@
         if(inforesult>echec){
             inforesult=echec;
         }
-        let etoilemax = Math.floor(parseInt(balistique)/5);
-        let etoile=0;
-        if(etoiled=="★ ★ ★ ★ ★"){
-            etoile=10;
-        }else if(etoiled=="★ ★ ★ ★ ✬"){
-            etoile=9;
-        }else if(etoiled=="★ ★ ★ ★ ☆"){
-            etoile=8;
-        }else if(etoiled=="★ ★ ★ ✬ ☆"){
-            etoile=7;
-        }else if(etoiled=="★ ★ ★ ☆ ☆"){
-            etoile=6;
-        }else if(etoiled=="★ ★ ✬ ☆ ☆"){
-            etoile=5;
-        }else if(etoiled=="★ ★ ☆ ☆ ☆"){
-            etoile=4;
-        }else if(etoiled=="★ ✬ ☆ ☆ ☆"){
-            etoile=3;
-        }else if(etoiled=="★ ☆ ☆ ☆ ☆"){
-            etoile=2;
-        }else if(etoiled=="✬ ☆ ☆ ☆ ☆"){
-            etoile=1;
-        }
+        
         let dif=parseInt(etoilemax)-parseInt(etoile);
         if(name=="Tir" || name=="Tircouv"){
             inforesult=parseInt(inforesult)+(dif*5)
@@ -723,203 +510,7 @@
     }
 
 
-    _onStory(event){
-        var demeure = ["Maison","Hotel","Chez un ami","demeure","Sous un pont","Sur un Bateau","Ferme","Auberge","Commerce / Négociation","Forge","Villa","Cabane"];
-        var proximite=["sur une planète du secteur de","sur"];
-        var lieu=["End-125","Proxima","Atarus","Sebos","ZX52","DX-128","ROF-89","HD-720P","Quenza","Sigma","TK86","Talouine","Turka","Rota","Imperator","Reset","Creab","87AB","TH5","R852","Natura","F10-X","Tella","Olympus","Iron","Zeus","Athena","Gaia","Apollon","Gallus","M-IP","Elysée","Grande nébuleuse","Tartare","Alexandrie","Maxima","74P-R","Centaurus","Nouvelle Terre","END-128","Terre","HAT-P1B","Valhala","Mystérious"]
-        var resident = demeure[Math.floor(Math.random()*demeure.length)]+" "+proximite[Math.floor(Math.random()*proximite.length)]+" "+lieu[Math.floor(Math.random()*lieu.length)];
-        this.actor.update({'system.caractere.residence': resident});
-        var titre=["de contrebandier","de commercant","de militaire","de colon","d'aventuriers","de pilote","d'artisan","de médecin","de mécanicien","d'intellectuel"];
-        var sang = "Issue d'une famille "+titre[Math.floor(Math.random()*titre.length)];
-        this.actor.update({'system.caractere.sang': sang});  
-        var rang=["Subordonné","Chef","Dirigeant","Membre","Adepte","Affilié","Cotisant","Participant","Soutien"]
-        var organisation=["de l'empire","de la rébélion","de la pléide","de l'OMC","de la fédération","des fanatiques","du commité des pilotes","du commité des chasseurs","du comité des commerçants","du comité des voyageurs","du comité des philosophes","du comité des artistes","de la guilde des contrebandier","du comité des militaire","de la guilde des mercenaires","de la guilde des tueurs de monstres","de la bande de bandits","de la bande de pirates"]
-        var politique=rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.politique': politique});
-        var groupe=organisation[Math.floor(Math.random()*organisation.length)]
-        this.actor.update({'system.caractere.interets': groupe});
-        var pertes=["mère","père","frère","soeur","ami(e)","amant(e)","personne","mentor","disciple","chef de son groupe","oncle","cousin","neveu","fiancé(e)","enfant","compagnon d'armes","rival(e)"]
-        var dc=pertes[Math.floor(Math.random()*pertes.length)]
-        this.actor.update({'system.caractere.deces': dc});
-        var valeur=["Aucun","Ethique","Verteux","Stoïcisme","Social","Humaniste","Questionnement","Droit","Juste","Corrompu","Egoiste","Individualiste","Communautaire"]
-        var moral=valeur[Math.floor(Math.random()*valeur.length)]
-        this.actor.update({'system.caractere.moral': moral});
-        var race=["Humain","Alpha Draconique","Pleiadiens","Arthuriens","Yoribiens","Elfen","Orquanien","Machine"]
-        var rang=["subordonné","chef","dirigeant","membre","adepte","affilié","cotisant","participant","soutien"]
-        var amour=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.amour': amour});
-        var ami=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.amitie': ami});
-        var haine=race[Math.floor(Math.random()*race.length)]+" "+rang[Math.floor(Math.random()*rang.length)]+" "+organisation[Math.floor(Math.random()*organisation.length)];
-        this.actor.update({'system.caractere.haine': haine});
-        var profession=["Voleur","Pilote","Artisan","Assassin","Garde","Marchand","Artisan","Chasseur","Chasseur de prime","Contrebandier","Vagabon","Navigateur","Aubergiste","Charlatant","Artiste","Diplomate","Fonctionnaire","Livreur","Soldat","Mercenaire"]
-        var metier=profession[Math.floor(Math.random()*profession.length)]
-        this.actor.update({'system.caractere.principale': metier});
-        var metier=profession[Math.floor(Math.random()*profession.length)]
-        this.actor.update({'system.caractere.secondaire': metier});
-        var loisir=["Chasse","Tricot","Crochet","Broderie","Peinture","Poésie","Chant","Acrobatie","Danse","Manger","Promenade","Peche","Equitation","Carte","Jeux d'argent","Coureur de jupon","Vol","Jardiner","Lecture","Dessin","Poterie"]
-        var metier=loisir[Math.floor(Math.random()*loisir.length)]
-        this.actor.update({'system.caractere.passion': metier});
-        var caracterelist=["Social","Individualiste","Altruiste","Fidéle","Infidel","Egoïsme","Générosité","Compassion","Fraternel","Dévoué","Croyant","Vaniteux","Forcené"]
-        var caractere=caracterelist[Math.floor(Math.random()*caracterelist.length)]
-        this.actor.update({'system.caractere.caract': caractere});
-        var personnalitelist=["Compléxé(e)","Débrouillard","Assisté(e)","Maniaque","Bordelique","Patient","Impatient","Supersticieux","Rationnel","Emotif","Apathique","Flégmatique","Précieux","Bourru","Colérique","Sérieux","Mélancolique","Sanguin"]
-        var personnalite=personnalitelist[Math.floor(Math.random()*personnalitelist.length)]
-        this.actor.update({'system.caractere.personnalite': personnalite});
-        var visionlist=["barbare","danger","découverte","connaissance","richesse","impie","démon","coeur à prendre","monstre","gibier","mystère","bandit","secte","croyance"]
-        var vision="Rempli de "+visionlist[Math.floor(Math.random()*visionlist.length)]
-        this.actor.update({'system.caractere.perception': vision});
-        var objectiflist=["Devenir riche","neaner de leur servitude","Aider sa communauté","Aider la nature","Recherche spirituel","Tuer les autres race","Recherche de connaissance"]
-        var objectif=objectiflist[Math.floor(Math.random()*objectiflist.length)]
-        this.actor.update({'system.caractere.objectif': objectif});
-        var racunelist=["oui","non","Dépend de la situation"]
-        var racune=racunelist[Math.floor(Math.random()*racunelist.length)]
-        this.actor.update({'system.caractere.rancunier': racune});
-        var tarelist=["Ablutophobie – Peur de se baigner. Cette phobie est plus une peur de la noyade qu'une peur de l'eau.","Acarophobie – Peur des parasites de la peau, des acariens.","Achluophobie – Peur de l'obscurité et du noir.","Achmophobie / Aichmophobie – Peur des aiguilles et des objets pointus (ciseaux, couteaux, seringues par exemple).","Acrophobie – Peur des hauteurs ; s'accompagne souvent de vertiges.","Administrativophobie – Peur des relations avec l'administration et des courriers administratifs.","Anasthesiaphobie - Peur de l'anesthésie.","Aérodromophobie – Peur de l'avion, des voyages en avion.","Aérophobie – Peur de l'air et du vent.","Agoraphobie – Peur des espaces publics et, par extension, de la foule ; plus généralement, des espaces où la fuite est rendue difficile (foule, mais aussi lieux déserts).","Algophobie – Peur de la douleur.","Alopophobie – Peur des chauves.","Amatophobie – Phobie de la poussière.","Amaxophobie – Peur de la conduite.","Anginophobie – Peur de l’étouffement, notamment par des angines de poitrine.","Angrophobie – Peur de se mettre en colère en public.","Ankylophobie – Peur de l'immobilité.","Anthelmophobie – Peur des vers.","Anthropophobie – Peur des gens ou d'être en leur compagnie, une forme de phobie sociale.","Anuptaphobie – Peur du célibat.","Apéirophobie – Peur de l'infini.","Apopathodiaphulatophobie – Peur d'être constipé ou de la constipation en elle-même.","Apopathophobie – Peur d'aller à la selle.","Aquaphobie – Peur de l’eau.","Arithmophobie – Peur des chiffres.","Asthénophobie – Peur de s'évanouir","Astraphobie – Peur du tonnerre.","Athazagoraphobie – Peur d'être oublié ou ignoré.","Atychiphobie – Peur de l’échec.","Automysophobie – Peur d'être sale, de sentir mauvais.","Autophobie – Peur de la solitude.","Aviophobie – Peur de prendre l'avion.","Bacillophobie – Peur des bacilles, des bactéries,.","Basophobie – Peur de marcher.","Bélénophobie – Peur des aiguilles (cf. achmophobie).","Blemmophobie – Peur du regard des autres.","Borbophobie – Peur des gargouillements.","Brontophobie – Peur du tonnerre.","Cancérophobie – Peur du cancer.","Cardiophobie – Peur du cœur ou peur d'un développement d'une maladie cardiovasculaire.","Carpophobie - Peur des fruits","Catapédaphobie – Peur de grimper en hauteur.","Cherophobie – Peur de la gaieté.","Chorophobie – Peur de danser.","Claustrophobie – Peur des espaces confinés.","Climacophobie – Peur d'utiliser des escaliers, surtout de les descendre.","Coemetiriophobie - Peur des cimetières.","Coulrophobie – Peur des clowns.","Cyclophobie – Peur de monter sur une bicyclette ou tout autre véhicule à deux roues.","Dentophobie – Peur du dentiste.","Dysmorphophobie / Dysmorphophie – Peur des anomalies physiques.","Ecclesiophobie – Peur des églises[réf. souhaitée].","Émétophobie – Peur de vomir.","Epistaxiophobie – Peur des saignements de nez.","Éreutophobie (ou l'érythrophobie)– Peur de rougir en public.","Fumiphobie – Peur de la fumée (tabac par exemple)","Géphyrophobie – Peur des ponts (ou de traverser les ponts).","Gérascophobie – Peur de vieillir.","Germophobie – Peur des germes.","Glossophobie – Peur de parler en public.","Graphophobie – Peur de l'écriture (fait d'écrire).","Gymnophobie – Peur de la nudité.","Halitophobie – Peur d'avoir mauvaise haleine.","Haptophobie (ou Aphenphosmophobie) – Peur d'être touché.","Hématophobie – Peur du contact et de la vue du sang.","Hylophobie – Peur des forêts.","Hypégiaphobie – Peur des responsabilités.","Ithyphallophobie / Medorthophobie – Peur de voir des pénis en érection.","Katagélophobie – Peur du ridicule.","Kénophobie – Peur de l'obscurité.","Kéraunophobie - Crainte morbide de la foudre et des orages.","Kopophobie – Peur d'être fatigué, ou de la fatigue elle-même.","Laxophobie – Peur d’être pris de diarrhées impérieuses en public, en dehors de chez soi, et de ne pas arriver à se retenir.","Leucosélophobie – Peur de la page blanche (blocage de l'écrivain) .","Lilapsophobie - Peur des tornades.","Maskaphobie – Peur des masques.","Mégalophobie – Peur des grands objets, des grands bâtiments (Gratte-ciel ou navires de croisière par exemple)","Musicophobie – Peur de la musique.","Mycophobie – Peur des champignons.","Mysophobie – Peur de la saleté, de la contamination par les microbes.","Nanopabulophobie – Peur des nains de jardin à brouette.","Nanophobie – Peur des nains.","Nécrophobie – Peur des cadavres.","Nélophobie – peur du verre (également Hyalophobie).","Néphobie – peur de l'inédit.","Néphrophobie – peur des maladie du rein (également Lithophobie).","Neurasthénophobie – peur de la tristesse.","Névrophobie – peur des crises de nerf (également Hystérophobie).","Nicophobie – peur des cigarettes.","Nomophobie – Peur d'être séparé de son téléphone portable. Cette phobie désignerait aussi la peur excessive des lois.","Nosocomephobie – Peur des hôpitaux, cliniques et centres de soin en général.","Nosophobie – Peur de la maladie, d'être malade.","Notaphobie – peur des factures (également Votaphobie).","Nourinophobie – peur des cochons (également Suidéphobie).","Nudophobie – peur ou réprobation de la nudité humaine.","Nulophobie – peur de la cité.","Numérophobie – peur des numéros.","Numismatophobie – peur des monnaies.","Ochlophobie – Peur de la foule.","Odontophobie – Peur du chirurgien-dentiste / des actes médicaux ou chirurgicaux en bouche.","Ombilicophobie - Peur du nombril, ne supporte pas d'y toucher ou de le voir","Paraskevidékatriaphobie – Peur des vendredis ","Pantophobie – Peur de tout","Pédiophobie – Peur des poupées","Pédophobie - Peur des enfants.","Phagophobie – Peur de s'étouffer avec des aliments.","Phasmophobie – Peur des fantômes.","Philophobie - Peur de tomber amoureux.","Philématophobie - Peur d'embrasser.","Protophiphouphobie - Peur de manquer de protéines ","Phobie de type sang-injection-blessure – Sous-type de phobies spécifiques classifié dans le DSM-IV.","Phobie sociale – Peur des ou de certaines situations sociales.","Phobophobie – Peur d'avoir peur (d'être surpris).","Pogonophobie – Aversion envers les barbes / phobie des poils du menton et des joues.","Podophobie – Peur des pieds","Psychopathophobie – Peur de devenir fou.","Pyrophobie – Peur du feu.","Scatophobie – Peur des excréments.","Scopophobie – Peur du regard des autres.","Sélénophobie – Peur de la lune.","Sidérodromophobie – Peur de voyager en train.","Spectrophobie – Peur des miroirs (des reflets).","Spitophobie - Peur de la salive","Stasophobie – Peur d'avoir à rester debout.","Taphophobie – Peur des tombes ou d'être enterré vivant.","Téléphonophobie – Peur de répondre au téléphone.","Tératophobie – Peur des monstres.","Thalassophobie – Peur de la mer.","Thanatophobie – Peur de la mort.","Théophobie – Peur de Dieu.","Tokophobie – Peur d'accoucher.","Trichophobie – Peur des poils et de la pilosité.","Trypophobie – Peur des trous.","Xénoglossophobie : Peur des langues étrangères.","Ailurophobie – Peur des chats.","Alektorophobie – Peur des poulets.","Anthelmophobie – Peur des vers.","Apiphobie – Peur des abeilles ; par extension, peur des insectes possédant un dard ou pouvant piquer.","Arachnophobie – Peur des araignées.","Chiroptophobie – Peur des chauves-souris","Cuniculophobie – Peur des lapins.","Cynophobie – Peur des chiens.","Entomophobie – Peur des insectes.","Héliciphobie - Peur des escargots et des limaces.","Herpétophobie – Peur des reptiles ou amphibiens.","Hippophobie – Peur des chevaux, des équidés.","Ichthyophobie – Peur des poissons.","Musophobie – Peur des souris ou rats.","Myrmécophobie – Peur des fourmis.","Octophobie- Peur des poulpes/pieuvres.","Ophiophobie – Peur des serpents.","Ornithophobie – Peur des oiseaux.","Squalophobie – Peur des requins."]
-        var tare=tarelist[Math.floor(Math.random()*tarelist.length)]
-        this.actor.update({'system.caractere.tare': tare});
-        var obsessionlist=["oui","non","Dépend de la situation"]
-        var obsession=obsessionlist[Math.floor(Math.random()*obsessionlist.length)]
-        this.actor.update({'system.caractere.obsession': obsession});
-        var distinguelist=["oui","non","Dépend de la situation"]
-        var distingue=distinguelist[Math.floor(Math.random()*distinguelist.length)]
-        this.actor.update({'system.caractere.distingue': distingue});
-    }
-
-    _onStory2(event){
-        var age = Math.floor((Math.random() * 34) + 16);
-        var items0=["sur une planète du secteur de","sur"];
-        var items1=["End-125","Proxima","Atarus","Sebos","ZX52","DX-128","ROF-89","HD-720P","Quenza","Sigma","TK86","Talouine","Turka","Rota","Imperator","Reset","Creab","87AB","TH5","R852","Natura","F10-X","Tella","Olympus","Iron","Zeus","Athena","Gaia","Apollon","Gallus","M-IP","Elysée","Grande nébuleuse","Tartare","Alexandrie","Maxima","74P-R","Centaurus","Nouvelle Terre","END-128","Terre","HAT-P1B","Valhala","Mystérious"]
-        var items2=["ta ville se fait attaqué","tu es affecté à une mission importante pour ta faction","un proche meurt assassiné","tu quittes ta planète pour voyager et découvrir le monde","des contrebandiers t'entrainent dans leurs magouilles","tu te fais capturer par une faction ennemi","tu es recruté par un étrange personnage pour une mission","un ami proche se fait enlever", "ton père meurt durant une bataille", "tu te fais kidnapper par un inconnu","tu es porté disparu durant une bataille", "tu es victime d'une tentative d’assassinat","durant un accident tu perds la mémoire","ton frère a disparu","ton hamster te confie une mission"];
-        var items3=["de ramener la paix au sein de la galaxie","de rechercher un moyen que ton nom reste dans les mémoires","de tuer les personnes qui sont responsables de tes malheurs","de sauver se monde ronger par la guerre","d'anéantir les personnes que tu juge trop faible","de partir en quête d'aventure","de te venger du mal qui ta été fait","de partir en quête de savoir","de partir t'enrichir","de devenir le plus fort","de rechercher l'amour","de devenir connu","d'enquêter sur des événements étranges","d'attraper tous les pokémons"];
-        var items4=["fasciné par la culture des autres races","animé par une soif de connaissance","expert dans ton domaine","par amour propre","pour fuir ton destin","après en avoir longuement réfléchit","par amour","par envie","par vengeance","par nécessité","par jalousie","par curiosité","par choix","après un tragique événement","par colère","par hasard"];
-
-        var secteur=items0[Math.floor(Math.random()*items0.length)];
-        var planete = items1[Math.floor(Math.random()*items1.length)];
-        var evenement=items2[Math.floor(Math.random()*items2.length)];
-        var tonchoix=items4[Math.floor(Math.random()*items2.length)];
-        var motivation  = items3[Math.floor(Math.random()*items3.length)];
-        var textgen ="Agé de "+age+" tu fais ta vie "+secteur+" "+planete+". Jusqu'au jour où "+evenement+", "+motivation+" tu décide "+tonchoix+".";
-        this.actor.update({'system.background.histoire': textgen});
-    }
-
-    _onAvantageRace(event){
-        var clanliste=this.actor.system.background.race;
-
-        var bonusrace='';
-        if(clanliste==game.i18n.localize("eveildunean.humain")){
-            bonusrace="10 Dextérité et solidarité entre humain";
-        }else if(clanliste==game.i18n.localize("eveildunean.artu")){
-            bonusrace="10 Connaissance générale et Kamikaze";
-        }else if(clanliste==game.i18n.localize("eveildunean.dragon")){
-            bonusrace="10 Force et récupération rapide (+5PV /jour)";
-        }else if(clanliste==game.i18n.localize("eveildunean.machine")){
-            bonusrace="10 Piratage et accès au réseau intermachine";
-        }else if(clanliste==game.i18n.localize("eveildunean.pleiadiens")){
-            bonusrace="10 Pistage et capacité de résurrection";
-        }else if(clanliste==game.i18n.localize("eveildunean.yor")){
-            bonusrace="10 Perception et sixième sens";
-        }else if(clanliste==game.i18n.localize("eveildunean.elf")){
-            bonusrace="10 Agilité et Technophile";
-        }else if(clanliste==game.i18n.localize("eveildunean.orqu")){
-            bonusrace="10 Combat et double arme";
-        }else {
-            bonusrace="";
-        }
-        this.actor.update({'system.background.bonusrace': bonusrace});
-    }
-    _onAvantageJob(event){
-        var metierliste=this.actor.system.background.metier;
-        console.log(metierliste)
-        var metier='';
-        if(metierliste==game.i18n.localize("eveildunean.metier1")){
-            metier="10 Artisanat";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier2")){
-            metier="10 Négociation";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier3")){
-            metier="10 Survie";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier4")){
-            metier="10 Investigation";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier5")){
-            metier="10 Discrétion";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier6")){
-            metier="10 Pilote";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier7")){
-            metier="10 Médecine";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier8")){
-            metier="10 Tir";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier9")){
-            metier="10 Mécanique";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier10")){
-            metier="10 Science";
-        }else if(metierliste==game.i18n.localize("eveildunean.metier11")){
-            metier="10 Magie";
-        }
-        console.log(metier)
-        this.actor.update({'system.background.bonusmetier': metier});
-    }
-    _onArmor(event){
-        var genre=event.target.dataset["genre"];
-        var objetaequipe=event.target.dataset["name"];
-        var type=event.target.dataset["type"];
-        var etoile=event.target.dataset["etoile"];
-
-        if(genre=="arme" ){
-            var degat=event.target.dataset["degat"]; 
-            this.actor.update({'system.degatd': degat,'system.armed':objetaequipe,'system.typed':type,'system.etoiled':etoile});
-        }else if(genre=="Armure"  || genre=="Combinaison"){
-            var hp=event.target.dataset["hp"]; 
-            var hpmax=event.target.dataset["hpmax"]; 
-            this.actor.update({'system.stat.armure.value': hp,'system.stat.armure.max': hpmax,'system.prog':objetaequipe});
-        }else if(genre=="Champ de force"){
-            var hp=event.target.dataset["hp"]; 
-            var hpmax=event.target.dataset["hpmax"]; 
-            this.actor.update({'system.stat.protections.value': hp,'system.stat.protections.max': hpmax,'system.prod':objetaequipe});
-        }else if(genre=="Chargeur"){
-            this.actor.update({'system.charged':objetaequipe});
-        }else{
-            this.actor.update({'system.autre':objetaequipe});
-        } 
-    }
-    _onDesArmor(event){
-        var genre=event.target.dataset["genre"];
-        if(genre=="arme" ){
-            this.actor.update({'system.degatd': '','system.armed':''});
-        }else if(genre=="armure"){
-            this.actor.update({'system.stat.armure.value': 0,'system.stat.armure.max': 0,'system.prog':''});
-        }else if(genre=="bouclier"){
-            this.actor.update({'system.stat.protections.value': 0,'system.stat.protections.max': 0,'system.prod':''});
-        }else if(genre=='chargeur'){
-            this.actor.update({'system.charged':''});
-        }else if(genre=='autre'){
-            this.actor.update({'system.autre':''});
-        } 
-    }
-
-    _onNivArmor(event){
-        var arm=this.actor.system.stat.armure.value;
-        var armmax=this.actor.system.stat.armure.max;
-        var bou=this.actor.system.stat.protections.value;
-        var boumax=this.actor.system.stat.protections.max;
-        var armname=this.actor.system.prog;
-        var bouname=this.actor.system.prod;
-        if(arm==''){arm=0}
-        if(armmax==''){armmax=0}
-        if(bou==''){bou=0}
-        if(boumax==''){boumax=0}
-        /*var modifarmure=1;
-        actarm=Math.floor(parseInt(actarm)/modifarmure);
-        actbou=Math.floor(parseInt(actbou)/modifarmure);*/
-        this.actor.update({'system.ptarm':arm,'system.ptbou':bou});
-        if(arm != 0){
-            let itemData= this.actor.items.filter(i=>i.name == armname);                 
-            itemData[0].DegatArm(arm,armmax);
-        }
-        if(bouname != 0){
-            let itemData2= this.actor.items.filter(i=>i.name == bouname);                 
-            itemData2[0].DegatArm(bou,boumax);
-        }
-    }
+    
 
     _onAleatoire(event){
         var race=["Chien","Serpent","Vermine","Ourse","Sangsue","Lézard","Oiseau","Araignée","Chimère","Grenouille"]
